@@ -1,0 +1,440 @@
+ //address-value pair Boot Program
+ 
+LDR 2, 2, 31
+LDR 3, 1, 27
+STR 2, 2, 30
+STR 1, 1, 3
+LDA 3, 2, 7
+LDA 2, 3,11
+LDX 1, 2, 21
+LDX 3, 3, 5
+STX 1, 1, 7
+STX 1, 3, 10
+	
+/*presets of this single program
+start of the block (0)
+m(30) store the number that you want to print
+store every digit of the numbers starting from
+m(50), example: for number 31 we store like this,
+m(50)=10 (new line sign), m(51)=49 (ascii of
+'1'), m(52)=51 (ascii of '3') */
+
+//program begins
+
+reset r1
+AIR r1, 10
+store r1 into location of content of m(6)
+load r3 with content of m(6)
+AIR r3, 1
+ store r3 into m(6)
+reset r2
+AIR r2, 10
+load r0 with content of m(30)
+
+ (0)
+DVD r0, r2
+load r3 with content of m(31)
+AIR r3, 20
+store r3 into m(31)
+JZ r0, content of m(31), means if r0 == 0
+	       
+  jump to (1)
+r1 + 48, convert to ascii
+		
+store r1 into location of content of m(6)
+load r3 with content of m(6)
+AIR r3, 1
+store r3 into m(6)
+load r3 with content of m(31)
+SIR r3, 20
+store r3 into m(31)
+JMA, content of m(31), means jump to (0)
+
+(1) r0 == 0, means has reach the highest digit of the number
+r1 + 48, convert to ascii
+		
+store r1 into location of content of m(6)
+load r3 with content of m(31)
+AIR r3, 20
+store r3 into m(31)
+reset r2
+AIR r2, 10 (new line sign, use to compare)
+JMA, content of m(31), means jump to (2)
+
+ (2) print the digit one by one
+load r1 with address of content of m(6)
+print r1 to console
+load r3 with content of m(31)
+AIR r3, 20
+store r3 into m(31)
+TRR r1, r2
+JCC cc(3), content of m(31), mean jump to (3)
+
+load r3 with content of m(6)
+SIR r3, 1
+store r3 into m(6)
+load r3 with content of m(31)
+SIR r3, 20
+store r3 into m(31)
+JMA, content of m(31), means jump to (2)
+
+ (3) finish printing the numbers
+		
+	
+// print the result in m(30)
+/*presets of this single program
+start of the block (0)
+m (30) store the number that you want to print
+store every digit of the numbers starting from
+m(50), example: for number 31 we store like this,
+m(50)=10 (new line sign), m(51)=49 (ascii of '1'), m(52)=51 (ascii of
+'3')  */
+
+ //program begins
+
+reset r1
+AIR r1, 10
+store r1 into location of content of m(6)
+load r3 with content of m(6)
+AIR r3, 1
+store r3 into m(6)
+reset r2
+AIR r2, 10
+load r0 with content of m(29)
+
+(0)
+DVD r0, r2
+load r3 with content of m(31)
+AIR r3, 20
+store r3 into m(31)
+JZ r0, content of m(31), means if r0 == 0
+jump to (1)
+r1 + 48, convert to ascii
+		
+store r1 into location of content of m(6)
+load r3 with content of m(6)
+AIR r3, 1
+store r3 into m(6)
+load r3 with content of m(31)
+SIR r3, 20
+store r3 into m(31)
+JMA, content of m(31), means jump to (0)
+(1) r0 == 0, means has reach the highest digit of the number
+r1 + 48, convert to ascii
+		
+store r1 into location of content of m(6)
+load r3 with content of m(31)
+AIR r3, 20
+store r3 into m(31)
+reset r2
+AIR r2, 10 (new line sign, use to compare)
+JMA, content of m(31), means jump to (2)
+ (2) print the digit one by one
+load r1 with address of content of m(6)
+print r1 to console
+load r3 with content of m(31)
+AIR r3, 20
+store r3 into m(31)
+TRR r1, r2
+JCC cc(3), content of m(31), mean jump to (3)
+
+load r3 with content of m(6)
+SIR r3, 1
+store r3 into m(6)
+load r3 with content of m(31)
+SIR r3, 20
+store r3 into m(31)
+JMA, content of m(31), means jump to (2)
+
+(3) finish printing the numbers
+		
+//print the result in m(30)
+	
+/* presets of this single program
+ start of the block (0)
+ m(30) store the number that you want to print
+ store every digit of the numbers starting from
+ m(50), example: for number 31 we store like this,
+ m(50)=10 (new line sign), m(51)=49 (ascii of '1'), m(52)=51 (ascii of
+ '3')*/
+
+// program begins
+
+reset r1
+AIR r1, 10
+store r1 into location of content of m(6)
+load r3 with content of m(6)
+AIR r3, 1
+store r3 into m(6)
+reset r2
+AIR r2, 10
+load r0 with content of m(28)
+
+(0)
+DVD r0, r2
+load r3 with content of m(31)
+AIR r3, 20
+store r3 into m(31)
+JZ r0, content of m(31), means if r0 == 0
+jump to (1)
+r1 + 48, convert to ascii
+		
+store r1 into location of content of m(6)
+load r3 with content of m(6)
+AIR r3, 1
+store r3 into m(6)
+load r3 with content of m(31)
+SIR r3, 20
+store r3 into m(31)
+JMA, content of m(31), means jump to (0)
+
+(1) r0 == 0, means has reach the highest digit of the number
+r1 + 48, convert to ascii
+		
+store r1 into location of content of m(6)
+load r3 with content of m(31)
+AIR r3, 20
+store r3 into m(31)
+reset r2
+AIR r2, 10 (new line sign, use to compare)
+JMA, content of m(31), means jump to (2)
+
+(2) print the digit one by one
+load r1 with address of content of m(6)
+ print r1 to console
+ load r3 with content of m(31)
+AIR r3, 20
+ store r3 into m(31)
+ TRR r1, r2
+ JCC cc(3), content of m(31), mean jump to (3)
+
+ load r3 with content of m(6)
+ SIR r3, 1
+store r3 into m(6)
+ load r3 with content of m(31)
+ SIR r3, 20
+ store r3 into m(31)
+JMA, content of m(31), means jump to (2)
+
+ (3) finish printing the numbers
+		
+
+/*Pre.put("6", 44);  ascii of ','
+7 ~ 26 store the 20 numbers
+27 store the 1 number
+start of block (0)
+the first address of the numbers
+the numbers of words need to read in program 1 */
+		
+SRC Reset r0 = 0
+LDA r3 with content of memory address 30
+ (0)
+LDA r2 with content of memory address 6
+IN r1
+TRR r1, r2
+LDA r2 with c(memory 28)
+ AIR r2, 20
+Store r2 into location memory 28
+ JCC cc=3 to c(memory 28) means jump to (1)
+ Load r2 with c(memory 28)
+ AIR r2, 20
+ Store r2 into location memory 28
+ JMA to c(memory 28) means jump to (2)
+ (1) it is a ','
+ Store r0 into memory with a location of
+c(memory 29)
+ reset r0
+ AIR r0, 10
+print r0 to console
+Load r1 with content of memory address 29
+AIR r1 with 1
+Store r1 into memory address 29
+ Reset r0
+Load r2 with c(memory 28)
+ AIR r2, 20
+ AIR r2, 20 Store r2 into location memory 28
+JMA to c(memory 28) means jump to (3)
+(2) it is a digit
+STR r0 into memory with a location of
+c(memory 29)
+		
+
+
+/* print r1 to console
+r1 should subtract 48 to get a digit
+Store r1 into memory with a location of c(memory 29)*/
+		 
+AMR r0, c(memory 29)
+LDA r2 with c(memory 28)
+SIR r2, 20 
+SIR r2, 20
+ Store r2 into location memory 28
+ JMA to c(memory 28) means jump to (3)
+ (3)
+ Load r2 with c(memory 28)
+SIR r2, 20
+ SIR r2, 20
+ SIR r2, 20
+ Store r2 into location memory 28
+ SOB r3, c(memory 28)
+ reset r0
+ AIR r0, 1
+store r0 to m(30)
+	
+
+
+
+// read the sentences
+
+ Load r3 with content of m(20)
+ (0)
+IN r1, 2
+ Load r2 with content of m(18)
+ AIR r2, 20
+Store r2 into m(18)
+JZ r1, content of m(18), means jump to
+(1) if r1 == 0
+OUT r1, 1
+Load r0 with content of m(31)
+AIR r0, 1
+  Store r0 into m(31)
+  Load r0 with content of m(20)
+  AIR r0, 1
+  Store r0 into m(20)
+  Store r1 into content of m(20)
+  Load r2 with content of m(18)
+  SIR r2, 20
+Store r2 into m(18)
+ JMA content of m(18), means jump to (0)
+
+(1) if r1 == 0
+SRC reset r1 to 0
+  AIR r1, 10
+OUT r1, 1
+  Store r3 into m(20)
+	
+
+
+// read the word
+	
+Load r3 with content of m(19)
+(0)
+  IN r1, 0
+  Load r2 with content of m(17)
+  AIR r2, 20
+Store r2 into m(17)
+JZ r1, content of m(17), means jump to
+(1) if r1 == 0
+OUT r1, 1
+  Load r0 with content of m(30)
+  AIR r0, 1
+  Store r0 into m(30)
+Load r0 with content of m(19)
+  AIR r0, 1
+  Store r0 into m(19)
+  Store r1 into content of m(19)
+  Load r2 with content of m(17)
+  SIR r2, 20
+  Store r2 into m(17)
+  JMA content of m(17), means jump to (0)
+
+(1) if r1 == 0
+  SRC reset r1 to 0
+  AIR r1, 10
+  OUT r1, 1
+  Store r3 into m(19)
+
+
+
+//find the word
+
+LDR r3 from M(31)
+AIR r3+1
+  SOB r3 *
+  JMA to the final STOP
+  LDR r0 from M(22) !
+AIR r0+1
+STR r0 to M (22)
+  LDR M (20) =99
+AIR r0+1
+STR r0 to M(20)
+LDR r1 form M(100) indirect
+  LDR r0 from M(25)= 46
+TRR r1 and r0
+JCC cc3 if 1 if not 0 continue
+LDR r0 from M(27)= 32
+  TRR r1 and r0
+  JCC cc3 if 1 if not 0 continue
+LDR r2 from M(7)=80 first capital from wor
+  TRR r1 and r2
+  JCC cc3 if 1 if not 0 continue
+  LDR r0 from M(22)
+  SMR r0 –M(21)
+  STR r0 to M(22)
+LDR r0 from M(20)
+  SMR r0 –M(21)
+  STR r0 to M(20) i= i-j
+LDR r0 from M(25)
+TRR r1 and r0
+  JCC cc3 if 1 if not 0 continue
+LDR r0 from M(27)
+ TRR r1 and r0
+ JCC cc3 if 1 if not 0 continue
+LDR r0 from M(26)=0
+  STR r0 to M (21)
+  LDR r0 from M(16)=81
+  STR r0 to M (7)
+  JMA EA8 =* 902
+LDR r0 from M(21) j %
+STR r1 to M(24) r1
+  LDR r1 from M(30)
+SIR r1-1
+  TRR r1 and r0
+LDR r1 from M(24)
+  JCC cc3 if 1 if not 0 continue
+  LDR r0 from M(21) j
+ AIR r0+1
+  STR r0 to M(21)
+  LDR r0 from M(7)
+  AIR r0+1
+STR r0 to M(7) c
+JMA to for
+  LDR r0 from M(29) cs #
+AIR r0+1
+  STR r0 to M(29)
+LDR r0 from M(26)=0
+STR r0 to M(28)
+  LDR r0 from M(13) 951
+SIR 951-31=920
+  SIR 920-6=914
+STR r0 to M(6)
+  JMA to 14
+LDR r0 from M(28) cw $
+AIR r0+1
+  STR r0 to M(28)
+  LDR r0 from M(12) 961
+  SIR 961-31=930
+  SIR 930-13=917
+  STR r0 to M(6)
+  JMA to 17
+  LDR r0 from M(10) 969 ^
+  SIR 969-31=938
+  SIR 938-9=929
+  STR r0 to M(6)
+  LDR r0 from M(21)
+  JZ j if 0
+  LDR r0 from M(29) cs
+  SIR -1 cs-1
+  STR r0 to M(29)
+  JMA to 29
+  LDR r0 from M(9) 979 ^
+SIR 979-31=948
+  SIR 948-16=932
+STR r0 to M(6)
+  LDR r0 from M(21) j
+  JZ j if 0
+  LDR r0 from M(28) cws
+  SIR -1 cs-1
+  STR r0 to M(28)
+  JMA to 32
+  out LDR r0 from M(29)	
