@@ -1,22 +1,22 @@
-**Project Name**
+## Project Name
 
 CPU Simulator
 
 
 
-**Purpose**
+## Purpose
 
 This is the class project of Computer Architecture to help understanding what was happened under the basement of the computer system (In the instruction level).
 
 
 
-**Programming Language and Library**
+## Programming Language and Library
 
 Using java and java swing for the GUI. 
 
 
 
-**How to use** 
+## How to use
 
 Download the JAR file and load the instructions to run.
 
@@ -24,7 +24,7 @@ Download the JAR file and load the instructions to run.
 
 
 
-**What kind of function does this application implemented.**
+## What kind of function does this application implemented.
 
 
 
@@ -37,7 +37,7 @@ Download the JAR file and load the instructions to run.
 
 
 
-What I learned from this project ?
+## What I learned from this project ?
 
 - The CPU's structure design and application analysis is very important before start coding, try to draw a flow chart to simulate the whole process of the application.
 - For the reusability and the maintenance, the instruction part and UI part should followed the rules of objected orientated programming. (Use the extension of the class and design interfaces)
